@@ -21,16 +21,16 @@ from . import db
 from app      import app
 from app.util import get_products, Product, load_product, load_product_by_slug, load_json_product
 
-import stripe
+# import stripe
 
 # Stripe Credentials
-stripe_keys = {
-    "secret_key"     : app.config['STRIPE_SECRET_KEY'     ] ,
-    "publishable_key": app.config['STRIPE_PUBLISHABLE_KEY'] ,
-    "endpoint_secret": app.config['STRIPE_SECRET_KEY'     ] ,
-} 
+# stripe_keys = {
+    # "secret_key"     : app.config['STRIPE_SECRET_KEY'     ] ,
+    # "publishable_key": app.config['STRIPE_PUBLISHABLE_KEY'] ,
+    # "endpoint_secret": app.config['STRIPE_SECRET_KEY'     ] ,
+# } 
 
-stripe.api_key = stripe_keys["secret_key"]
+# stripe.api_key = stripe_keys["secret_key"]
 
 ###############################################
 # AUTH 
@@ -67,28 +67,28 @@ def create_user():
 # AUTH 
 ###############################################
 
-@app.route("/config")
-def get_publishable_key():
-    stripe_config = {"publicKey": stripe_keys["publishable_key"]}
-    return jsonify(stripe_config)
+# @app.route("/config")
+# def get_publishable_key():
+    # stripe_config = {"publicKey": stripe_keys["publishable_key"]}
+    # return jsonify(stripe_config)
 
-@app.route("/success")
-def success():
-    return render_template("ecommerce/payment-success.html")
+# @app.route("/success")
+# def success():
+    # return render_template("ecommerce/payment-success.html")
 
-@app.route("/cancelled")
-def cancelled():
-    return render_template("ecommerce/payment-cancelled.html")
+# @app.route("/cancelled")
+# def cancelled():
+    # return render_template("ecommerce/payment-cancelled.html")
 
-@app.route("/create-checkout-session/<path>/")
-def create_checkout_session(path):
+#@app.route("/create-checkout-session/<path>/")
+#def create_checkout_session(path):
 
-    product = load_product_by_slug( path )
+    # product = load_product_by_slug( path )
 
-    domain_url = app.config['SERVER_ADDRESS']
-    stripe.api_key = stripe_keys["secret_key"]
+    # domain_url = app.config['SERVER_ADDRESS']
+    # stripe.api_key = stripe_keys["secret_key"]
 
-    try:
+    # try:
         # Create new Checkout Session for the order
         # Other optional params include:
         # [billing_address_collection] - to display billing address details on the page
@@ -98,23 +98,23 @@ def create_checkout_session(path):
         # For full details see https:#stripe.com/docs/api/checkout/sessions/create
 
         # ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
-        checkout_session = stripe.checkout.Session.create(
-            success_url=domain_url + "success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url=domain_url + "cancelled",
-            payment_method_types=["card"],
-            mode="payment",
-            line_items=[
-                {
-                    "name": product.name,
-                    "quantity": 1,
-                    "currency": 'usd',
-                    "amount": product.price * 100,
-                }
-            ]
-        )
-        return jsonify({"sessionId": checkout_session["id"]})
-    except Exception as e:
-        return jsonify(error=str(e)), 403
+        # checkout_session = stripe.checkout.Session.create(
+            # success_url=domain_url + "success?session_id={CHECKOUT_SESSION_ID}",
+            # cancel_url=domain_url + "cancelled",
+            # payment_method_types=["card"],
+            # mode="payment",
+            # line_items=[
+                # {
+                    # "name": product.name,
+                    # "quantity": 1,
+                    # "currency": 'usd',
+                    # "amount": product.price * 100,
+                # }
+            # ]
+        # )
+        # return jsonify({"sessionId": checkout_session["id"]})
+    # except Exception as e:
+        # return jsonify(error=str(e)), 403
 
 # Product Index
 @app.route('/',          defaults={'path': 'products/index.html'})
