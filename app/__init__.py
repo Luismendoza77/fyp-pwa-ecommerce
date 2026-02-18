@@ -32,6 +32,13 @@ from .models import User
 def load_user(user_id):
     return User.query.filter_by(username=user_id).first()
 
+# service worker
+from flask import send_from_directory
+
+@app.route("/sw.js")
+def service_worker():
+    return send_from_directory("static", "sw.js", mimetype="application/javascript")
+
 # Import routing to render the pages
 from app import views
 
