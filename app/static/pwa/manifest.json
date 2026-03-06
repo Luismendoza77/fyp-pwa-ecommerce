@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "FYP PWA E-Commerce",
+  "short_name": "FYP Shop",
+  "description": "Mobile e-commerce web app enhanced with Progressive Web App (PWA) features for FYP evaluation.",
+  "start_url": "/products/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/static/assets/img/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/assets/img/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

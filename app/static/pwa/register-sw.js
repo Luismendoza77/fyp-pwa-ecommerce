@@ -1,0 +1,11 @@
+// app/static/pwa/register-sw.js
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", async () => {
+    try {
+      const reg = await navigator.serviceWorker.register("/sw.js");
+      console.log("Service Worker registered:", reg.scope);
+    } catch (err) {
+      console.error("Service Worker registration failed:", err);
+    }
+  });
+}

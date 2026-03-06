@@ -39,6 +39,7 @@ Coded by www.creative-tim.com
   <!-- Specific CSS goes HERE -->
   {% block stylesheets %}{% endblock stylesheets %}
 
+  <link rel="manifest" href="/static/pwa/manifest.json">
 </head>
 <body class="{% block body_class %}{% endblock body_class %}">
 
@@ -50,7 +51,7 @@ Coded by www.creative-tim.com
 
   <!-- Specific JS goes HERE --> 
   {% block javascripts %}{% endblock javascripts %}
-
+  <script src="/static/pwa/register-sw.js"></script>
 </body>
 </html>
 

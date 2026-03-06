@@ -393,3 +393,12 @@ def is_logged_in():
     if current_user.is_authenticated:
         return True
     return False
+
+from flask import send_from_directory, make_response
+
+@app.route("/sw.js")
+def sw_main():
+    response = make_response(send_from_directory("static", "sw.js"))
+    response.headers["Service-Worker-Allowed"] = "/"
+    response.headers["Content-Type"] = "application/javascript"
+    return response
