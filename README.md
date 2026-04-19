@@ -1,163 +1,143 @@
-# fyp-pwa-ecommerce
-# fyp-pwa-ecommerce
 # PWA E-commerce Web Application
 
 ## Overview
 
 This project is a mobile e-commerce web application developed using Python and Flask, enhanced with Progressive Web App (PWA) technologies. The main aim of the project is to evaluate the impact of PWA features on performance, reliability, and offline usability in a mobile e-commerce context.
 
-Two comparable versions of the application were used during the project:
+Two comparable versions of the application were used:
 
-- **Baseline version**: a traditional web application without PWA features
-- **PWA version**: an enhanced version with a Service Worker, caching strategies, and a Web App Manifest
-
-This comparison allowed the performance and behaviour of both implementations to be evaluated under similar conditions.
+- **Baseline version**: a traditional web application without PWA features  
+- **PWA version**: an enhanced version with Service Workers, caching, and offline support  
 
 ---
 
 ## Technologies Used
 
-- Python
-- Flask
-- HTML
-- CSS
-- JavaScript
-- Service Worker
-- Web App Manifest
-- Google Lighthouse
-- Chrome DevTools
-- Git and GitHub
+- Python  
+- Flask  
+- HTML, CSS, JavaScript  
+- Service Workers  
+- Web App Manifest  
+- Google Lighthouse  
+- Chrome DevTools  
+- Git and GitHub  
 
 ---
 
 ## Project Structure
 
-The project is organised into backend, frontend, and PWA-related components.
+The project is organised as follows:
+FINAL_PROJECT/
+│
+├── app/
+│ ├── static/
+│ │ ├── assets/
+│ │ ├── products/
+│ │ ├── pwa/
+│ │ │ ├── manifest.json
+│ │ │ └── register-sw.js
+│ │ └── sw.js
+│ │
+│ ├── templates/
+│ │ ├── ecommerce/
+│ │ ├── includes/
+│ │ ├── layouts/
+│ │ ├── pages/
+│ │ └── products/
+│ │
+│ ├── __init__.py
+│ ├── config.py
+│ ├── models.py
+│ ├── util.py
+│ └── views.py
+│
+├── run.py
+├── requirements.txt
+└── README.md
 
-- `run.py`  
-  Entry point used to run the Flask application.
-
-- `app/`  
-  Main application package containing the backend logic, templates, static files, and views.
-
-- `app/views.py`  
-  Contains the Flask routes and the main application behaviour.
-
-- `app/templates/`  
-  Contains the HTML templates used to render the user interface.
-
-- `app/static/`  
-  Contains static assets such as CSS, JavaScript, images, and PWA files.
-
-- `app/static/sw.js`  
-  Service Worker file used to support caching and offline functionality.
-
-- `app/static/pwa/manifest.json`  
-  Web App Manifest file used to define metadata for the installable application.
-
-- `requirements.txt`  
-  Python dependencies required to run the project.
-
-- `README.md`  
-  Project documentation.
 
 ---
 
 ## Main Features
 
-- Product listing and browsing
-- Product detail pages
-- Responsive mobile-friendly interface
-- Progressive Web App support
-- Offline functionality using cached resources
-- Performance comparison between baseline and PWA versions
+- Product browsing  
+- Responsive design  
+- PWA support  
+- Offline functionality  
+- Performance comparison (baseline vs PWA)  
 
 ---
 
 ## PWA Features
 
-The PWA version includes the following features:
-
-- **Service Worker**  
-  Used to intercept requests, cache resources, and support offline access.
-
-- **Web App Manifest**  
-  Provides application metadata such as name, icon, and display mode.
-
-- **Caching Strategy**  
-  Used to improve reliability and reduce network dependency.
-
-- **Offline Access**  
-  Previously visited resources can still be loaded when the device is offline.
+- Service Worker for caching and offline access  
+- Web App Manifest for installability  
+- Improved reliability and reduced network dependency  
 
 ---
 
 ## How to Run the Application
 
-### 1. Create and activate a virtual environment
+### 1. Create a virtual environment
 
 ```bash
 python -m venv venv
-
-Activate it on Windows PowerShell:
-
+```
+### 2. Activate (Windows PowerShell)
+```powershell
 .\venv\Scripts\Activate
-2. Install dependencies
+```
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
-3. Run the application
+```
+### 4. Run the application
+```bash
 python run.py
-4. Open in the browser
+```
+### 5. Open in browser
 http://127.0.0.1:5000/products/
-Testing and Evaluation
+
+### Testing and Evaluation
 
 The application was evaluated using:
 
-Google Lighthouse for performance metrics
-Chrome DevTools for offline testing and Service Worker validation
-Performance Metrics Used
-First Contentful Paint (FCP)
-Largest Contentful Paint (LCP)
-Speed Index
-Total Blocking Time (TBT)
-Cumulative Layout Shift (CLS)
-Evaluation Approach
+- Google Lighthouse for performance metrics
+- Chrome DevTools for offline testing
+- Performance Metrics Used
+- First Contentful Paint (FCP)
+- Largest Contentful Paint (LCP)
+- Speed Index
+- Total Blocking Time (TBT)
+- Cumulative Layout Shift (CLS)
+### Evaluation Approach
 
 The project compares:
 
-a baseline version without PWA functionality
-a PWA-enhanced version with caching and offline support
+- a baseline version without PWA
+- a PWA-enhanced version
 
-This made it possible to evaluate the practical impact of PWA technologies on web application behaviour.
+This allowed evaluation of the impact of PWA technologies on performance and usability.
 
-Summary of Findings
-
-The evaluation showed that:
-
-the overall Lighthouse score remained similar between versions
-the PWA version showed improvements in some loading metrics
-the most important difference was offline functionality
-the baseline version failed when offline
-the PWA version remained functional by serving cached resources
-
-This demonstrates that PWA technologies improve application reliability and usability, especially in environments with unstable connectivity.
-
-Limitations
-No real-user testing was conducted
-The application is a simplified e-commerce prototype
-Advanced features such as authentication and payments were not included
-Future Work
-
-Possible future improvements include:
-
-adding user authentication
-adding shopping cart and payment features
-improving UI/UX design
-refining caching strategies
-conducting user-based usability testing
-Author
+### Summary of Findings
+Similar overall Lighthouse score
+Improvements in FCP, LCP, and Speed Index
+Significant improvement in offline functionality
+PWA works offline, baseline does not
+### Limitations
+- No user testing
+- Simplified e-commerce system
+- No authentication or payment features
+### Future Work
+- Add user accounts
+- Add shopping cart and payments
+- Improve UI/UX
+- Refine caching strategies
+- Conduct user testing
+### Author
 
 Luis Alexander Yunga Mendoza
 
-Academic Context
+### Academic Context
 
-This project was developed as part of the COMP1682 Final Year Individual Project at the University of Greenwich.
+This project was developed as part of the COMP1682 Final Year Project at the University of Greenwich.
